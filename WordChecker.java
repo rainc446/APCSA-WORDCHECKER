@@ -3,6 +3,7 @@ import java.util.ArrayList;
 public class WordChecker {
     /** Initialized in the constructor and contains no null elements */
     private ArrayList<String> wordList;
+    private Boolean wordMatches;
     /**
      * Returns true if each element of wordList (except the first) contains the previous
      * element as a substring and returns false otherwise, as described in part (a)
@@ -21,17 +22,24 @@ public class WordChecker {
             int wordMin = 0;
             String lastWord = wordList.get(x-1);
             String wordToCheck = wordList.get(x);
-            for (int wordMax = 0; wordMax < wordToCheck.length(); wordMax++)
-            {
-                if (wordToCheck.substring(wordMin, wordMax).equals(lastWord))
-                {
-                    return
+            if(!wordMatches) {
+                for (int wordMax = 0; wordMax < wordToCheck.length(); wordMax++) {
+                    wordMatches = checkOneWord(wordToCheck, lastWord, wordMin, wordMax);
+                    if(wordMatches) {break;}
                 }
-
+                if(!wordMatches){return false;}
             }
-
         }
+        return true;
 
+    }
+
+    public boolean checkOneWord(String wordToCheck, String lastWord, int wordMin, int wordMax)
+    {
+        if ((wordToCheck.substring(wordMin, wordMax).equals(lastWord))) {
+            wordMatches = true;
+        }
+        return wordMatches;
     }
     /**
      * Returns an ArrayList<String> based on strings from wordList that start
