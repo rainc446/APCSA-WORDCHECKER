@@ -17,7 +17,7 @@ public class WordChecker {
 
     public boolean isWordChain()
     { /* to be implemented in part (a) */
-        for (int x = 1; x <= wordList.length(); x++) //index will start at one
+        for (int x = 1; x <= wordList.size(); x++) //index will start at one
         {
             int wordMin = 0;
             String lastWord = wordList.get(x-1);
@@ -27,7 +27,7 @@ public class WordChecker {
                     wordMatches = checkOneWord(wordToCheck, lastWord, wordMin, wordMax);
                     if(wordMatches) {break;}
                 }
-                if(!wordMatches){return false;}
+                if (!wordMatches) {return false;}
             }
         }
         return true;
@@ -48,8 +48,9 @@ public class WordChecker {
      * Postconditions: wordList is unchanged.
      * Items appear in the returned list in the same order as they appear in wordList.
      */
-    public ArrayList<String> createList(String target)
-    { /* to be implemented in part (b) */
-    }
+    //public ArrayList<String> createList(String target)
+    //{ /* to be implemented in part (b) */
+
+    //}
 // There may be instance variables, constructors, and methods that are not shown.
 }
