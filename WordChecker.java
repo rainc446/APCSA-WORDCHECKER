@@ -3,7 +3,7 @@ import java.util.ArrayList;
 public class WordChecker {
     /** Initialized in the constructor and contains no null elements */
     private ArrayList<String> wordList;
-    private Boolean wordMatches;
+    private Boolean wordMatches = false;
     /**
      * Returns true if each element of wordList (except the first) contains the previous
      * element as a substring and returns false otherwise, as described in part (a)
@@ -19,6 +19,8 @@ public class WordChecker {
     { /* to be implemented in part (a) */
         for (int x = 1; x <= wordList.size(); x++) //index will start at one
         {
+
+            //indexOf() w3schools
             int wordMin = 0;
             String lastWord = wordList.get(x-1);
             String wordToCheck = wordList.get(x);
