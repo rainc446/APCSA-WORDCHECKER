@@ -3,7 +3,7 @@ import java.util.ArrayList;
 public class WordChecker {
     /** Initialized in the constructor and contains no null elements */
     private ArrayList<String> wordList;
-    private Boolean wordMatches = false;
+    private boolean wordMatches;
     /**
      * Returns true if each element of wordList (except the first) contains the previous
      * element as a substring and returns false otherwise, as described in part (a)
@@ -17,32 +17,23 @@ public class WordChecker {
 
     public boolean isWordChain()
     { /* to be implemented in part (a) */
-        for (int x = 1; x <= wordList.size(); x++) //index will start at one
-        {
 
+        for (int x = 1; x < wordList.size(); x++)   //index will start at one, if you check less than or equal to then you are checking for index of 3
+                                                    //skips index of zero preventing the first word from being checked at all
+        {
             //indexOf() w3schools
             int wordMin = 0;
-            String lastWord = wordList.get(x-1);
             String wordToCheck = wordList.get(x);
-            if(!wordMatches) {
-                for (int wordMax = 0; wordMax < wordToCheck.length(); wordMax++) {
-                    wordMatches = checkOneWord(wordToCheck, lastWord, wordMin, wordMax);
-                    if(wordMatches) {break;}
-                }
-                if (!wordMatches) {return false;}
+            String lastWord = wordList.get(x - 1);
+            if (wordToCheck.indexOf(lastWord) < 0) {
+                return wordMatches;
             }
-        }
-        return true;
 
-    }
-
-    public boolean checkOneWord(String wordToCheck, String lastWord, int wordMin, int wordMax)
-    {
-        if ((wordToCheck.substring(wordMin, wordMax).equals(lastWord))) {
-            wordMatches = true;
         }
+        wordMatches = true;
         return wordMatches;
     }
+
     /**
      * Returns an ArrayList<String> based on strings from wordList that start
      * with target, as described in part (b). Each element of the returned ArrayList has had
@@ -50,9 +41,9 @@ public class WordChecker {
      * Postconditions: wordList is unchanged.
      * Items appear in the returned list in the same order as they appear in wordList.
      */
-    //public ArrayList<String> createList(String target)
-    //{ /* to be implemented in part (b) */
+    public ArrayList<String> createList(String target)
+    { /* to be implemented in part (b) */
 
-    //}
+    }
 // There may be instance variables, constructors, and methods that are not shown.
 }
