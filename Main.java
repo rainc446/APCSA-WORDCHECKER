@@ -9,8 +9,8 @@ public class Main {
         arrayInputOne.add("an");
         arrayInputOne.add("band");
         arrayInputOne.add("band");
-        WordChecker g = new WordChecker(arrayInputOne);
-        boolean info = g.isWordChain();
+        WordChecker f = new WordChecker(arrayInputOne);
+        boolean info = f.isWordChain();
         System.out.println(info);
 
         //test 2
@@ -19,8 +19,19 @@ public class Main {
         arrayInputTwo.add("too");
         arrayInputTwo.add("stool");
         arrayInputTwo.add("tools");
-        WordChecker f = new WordChecker(arrayInputTwo);
-        info = f.isWordChain();
+        WordChecker g = new WordChecker(arrayInputTwo);
+        info = g.isWordChain();
         System.out.println(info);
+
+        ArrayList<String> arrayInputThree = new ArrayList<>();
+        arrayInputThree.add("catch");
+        arrayInputThree.add("bobcat");
+        arrayInputThree.add("catchacat");
+        arrayInputThree.add("cat");
+        arrayInputThree.add("at");
+        WordChecker h = new WordChecker(arrayInputThree);
+        System.out.println(h.createList("cat"));
+        System.out.println(h.createList("catch"));
+        System.out.println(h.createList("dog"));
     }
 }

@@ -43,7 +43,17 @@ public class WordChecker {
      */
     public ArrayList<String> createList(String target)
     { /* to be implemented in part (b) */
-
+      ArrayList<String> targetRemoved = new ArrayList<>();
+      for(int i = 0; i < wordList.size()-1; i++) {
+//          String startOfWord = wordList.get(i).substring(0,target.length()-1);
+          if (wordList.get(i).startsWith(target)){
+              String newWord = wordList.get(i).substring(target.length());
+              targetRemoved.add(newWord);
+          }
+      }
+      return targetRemoved;
     }
+
+
 // There may be instance variables, constructors, and methods that are not shown.
 }
